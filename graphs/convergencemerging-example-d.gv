@@ -1,0 +1,22 @@
+graph
+{
+	node [shape=circle];
+
+	A4 [label="A"];
+	A3 [label="A"];
+	A2 [label="A"];
+	C2 [label="C"];
+
+	node [shape=box];
+
+	A1 [label="A"];
+	B1 [label="B"];
+	C1 [label="C"];
+	D1 [label="D"];
+
+	A4 -- A3 -- A2 -- A1;
+	A3 -- C2 -- C1;
+	A2 -- B1;
+	C2 -- D1;
+}
+
