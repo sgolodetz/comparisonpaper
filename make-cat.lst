@@ -1,0 +1,45 @@
+type CAT $\equiv$ Map[(int,int) $\to$ int]
+
+function make_cat: (forest: Forest) $\to$ CAT
+
+var result: CAT;
+for each $\ell_i \in \mbox{forest.leaves()}$
+  for each $\ell_j \in \mbox{forest.leaves()}$
+    if j = i then continue;
+    find_common_ancestor(forest, i, j, ref result);
+return result;
+
+function find_common_ancestor
+:  (forest: Forest; i, j: int; cat: ref CAT) $\to$ $\emptyset$
+
+var curLayer: int := 0;
+var curI, curJ: int := i, j;
+while curI $\ne -1$ and curJ $\ne -1$
+  if curI > curJ then
+    // The CAT is symmetric, so we store
+    // only ordered pairs to save space.
+    swap(curI, curJ);
+  else if curI = curJ then
+    // We have reached the common ancestor
+    // of i and j, so store it in the CAT.
+    cat((i,j)) := curLayer;
+    return;
+
+  // The common ancestor of i and j is always
+  // equal to the common ancestor of curI and
+  // curJ, so we can use existing results in
+  // the CAT to save some work.
+  var known: int? := cat((curI,curJ));
+  if known $\ne$ null then
+    cat((i,j)) := known;
+    return;
+
+  // If we have not yet found the common ancestor,
+  // keep walking up the forest.
+  curI := forest.parent((curLayer,curI)).index();
+  curJ := forest.parent((curLayer,curJ)).index();
+  curLayer := curLayer + 1;
+
+// If i and j never merge in the forest,
+// record this as a merge at $\infty$.
+cat((i,j)) := $\infty$;

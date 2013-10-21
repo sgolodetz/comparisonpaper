@@ -78,7 +78,7 @@
 \def\thelstlisting{\textbf{\arabic{lstlisting}}}
 
 \lstdefinelanguage{Pseudocode}{
-morekeywords={and,assert,break,case,continue,default,down,each,else,for,function,if,not,null,or,rangeswitch,ref,return,switch,then,this,throw,to,up,var,while},
+morekeywords={and,assert,break,case,continue,default,down,each,else,for,function,if,not,null,or,rangeswitch,ref,return,switch,then,this,throw,to,type,up,var,while},
 sensitive=true,
 morecomment=[l]{//},
 morecomment=[s]{/*}{*/}
@@ -179,13 +179,11 @@ abdominal CT scans, image partition forests, multi-rate merging, segmentation co
 \section{Introduction}
 %#####################
 
-TODO
+TODO: \cite{golodetz11}
 
 \textbf{In this paper, we present the slow and fast forest merging methods for a pair of partition forests over the same base image. We further show how the resulting merged forests can be compared straightforwardly to characterise the similarity between the original forests.}
 
 The organisation of this paper is as follows: in \S\ref{sec:ipfs}, we briefly revisit the concept of an image partition forest; in \S\ref{sec:merging}, we present our merging methods; in \S\ref{sec:comparisons}, we present various ways in which the merged forests can be compared; in \S\ref{sec:experiments}, we evaluate the effectiveness of our comparison approaches on some popular test images from the literature; and in \S\ref{sec:discussion}, we analyse the results of our experiments.
-
-TODO: \cite{golodetz11}
 
 %################################
 \section{Image Partition Forests}
@@ -198,6 +196,28 @@ TODO
 \section{Forest Merging}
 \label{sec:merging}
 %#######################
+
+\subsection{Overview}
+
+TODO
+
+\subsection{Building the Common Ancestor Tables (CATs)}
+
+TODO
+
+%---
+\begin{stulisting}[t]
+\caption{Building a Common Ancestor Table}
+\label{code:make-cat}
+\lstinputlisting[style=Default]{make-cat.lst}
+\end{stulisting}
+%---
+
+\subsection{Building a Merge Table}
+
+TODO
+
+\subsection{Building a Merged Forest}
 
 TODO
 
@@ -235,6 +255,8 @@ TODO
 %#####################
 
 TODO
+
+\IEEEpubidadjcol
 
 %######################
 \section{Conclusions}
