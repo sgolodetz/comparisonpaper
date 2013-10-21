@@ -1,6 +1,6 @@
 type CAT $\equiv$ Map[(int,int) $\to$ int]
 
-function make_cat: (forest: Forest) $\to$ CAT
+function build_cat: (forest: Forest) $\to$ CAT
 
 var result: CAT;
 for each $\ell_i \in \mbox{forest.leaves()}$

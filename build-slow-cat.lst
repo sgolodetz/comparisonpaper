@@ -1,0 +1,23 @@
+function build_slow_cat:  (forestX, forestY: Forest) $\to$ CAT
+
+var result: CAT;
+var catX: CAT := build_cat(forestX);
+var catY: CAT := build_cat(forestY);
+var it, iend, jt, jend: CATIterator;
+it, iend := catX.begin(), catX.end();
+jt, jend := catY.begin(), catY.end();
+
+// Loop through the two input CATs in lock-step,
+// keeping the higher layer in which each pair
+// of leaves has a common ancestor (this leads
+// to a slow merge; keeping the lower layer
+// would lead to a fast one).
+while it $\ne$ iend and jt $\ne$ jend
+  if it.value() > jt.value() then
+    result.insert(it);
+  else
+    result.insert(jt);
+
+  ++it, ++jt;
+
+return result;
