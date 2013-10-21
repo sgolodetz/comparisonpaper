@@ -1,0 +1,8 @@
+type MergeTable $\equiv$ Map[int,Vector[(int,int)]];
+
+function build_merge_table: (cat: CAT) $\to$ MergeTable
+
+var result: MergeTable;
+for each ((i,j),layer) $\in$ cat
+  result[layer].push_back((i,j));
+return result;

@@ -1,4 +1,4 @@
-function build_slow_cat:  (forestX, forestY: Forest) $\to$ CAT
+function build_slow_cat: (forestX, forestY: Forest) $\to$ CAT
 
 var result: CAT;
 var catX: CAT := build_cat(forestX);

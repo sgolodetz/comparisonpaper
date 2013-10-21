@@ -1,0 +1,37 @@
+function build_slow_merged_forest
+:  (forestX, forestY: Forest) $\to$ Forest
+
+return build_merged_forest(
+  forestX, forestY,
+  build_slow_cat(forestX, forestY)
+);
+
+function build_fast_merged_forest
+:  (forestX, forestY: Forest) $\to$ Forest
+
+return build_merged_forest(
+  forestX, forestY,
+  build_fast_cat(forestX, forestY)
+);
+
+function build_merged_forest
+:  (forestX, forestY: Forest, cat: CAT) $\to$ Forest
+
+var result: Forest := make_forest(forestX.leaf_layer());
+var mergeTable: MergeTable := build_merge_table(cat);
+
+for $\ell$ := 1 to max(forestX.top_layer(), forestY.top_layer())
+  result.clone_layer($\ell$ - 1);
+
+  for each (i,j) $\in$ mergeTable($\ell$)
+    var lhs: NodeID := result.ancestor_of((0,i), $\ell$);
+    var rhs: NodeID := result.ancestor_of((0,j), $\ell$);
+    if result.are_connected({lhs,rhs}) then
+      result.merge_sibling_nodes({lhs,rhs});
+    else
+      // If we can't yet merge the two specified nodes
+      // in this layer for connectedness reasons, we
+      // should try again at the next layer up.
+      mergeTable($\ell$ + 1).push_back((i,j));
+
+return result;
