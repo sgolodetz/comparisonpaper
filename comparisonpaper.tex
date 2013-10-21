@@ -151,7 +151,7 @@ tabsize=4
 
 \begin{document}
 
-\title{Comparing Partition Forest Segmentations \\ via Convergence Merging}
+\title{Comparing Partition Forest Segmentations \\ via Multi-Rate Merging}
 
 \author{Stuart~Golodetz, Varduhi~Yeghiazaryan, Irina~Voiculescu and Stephen~Cameron%
 \thanks{All the authors are with the University of Oxford.}}
@@ -159,7 +159,7 @@ tabsize=4
 \date{\today}
 
 \markboth{IEEE Transactions on Image Processing, Vol.~?, No.~?,~?~2014}%
-{Golodetz \MakeLowercase{\textit{et al.}}: Comparing Partition Forest Segmentations via Convergence Merging}
+{Golodetz \MakeLowercase{\textit{et al.}}: Comparing Partition Forest Segmentations via Multi-Rate Merging}
 
 \IEEEpubid{0000--0000/00\$00.00~\copyright~2014 IEEE}
 
@@ -170,7 +170,7 @@ tabsize=4
 \end{abstract}
 
 \begin{IEEEkeywords}
-abdominal CT scans, convergence merging, image partition forests, segmentation comparison
+abdominal CT scans, image partition forests, multi-rate merging, segmentation comparison
 \end{IEEEkeywords}
 
 \IEEEpeerreviewmaketitle
@@ -181,9 +181,9 @@ abdominal CT scans, convergence merging, image partition forests, segmentation c
 
 TODO
 
-\textbf{In this paper, we present the slow and fast convergence merging methods for a pair of partition forests over the same base image. We further show how the resulting merged forests can be compared straightforwardly to characterise the similarity between the original forests.}
+\textbf{In this paper, we present the slow and fast forest merging methods for a pair of partition forests over the same base image. We further show how the resulting merged forests can be compared straightforwardly to characterise the similarity between the original forests.}
 
-The organisation of this paper is as follows: in \S\ref{sec:ipfs}, we briefly revisit the concept of an image partition forest; in \S\ref{sec:merging}, we present our convergence merging methods; in \S\ref{sec:comparisons}, we present various ways in which the merged forests can be compared; in \S\ref{sec:experiments}, we evaluate the effectiveness of our comparison approaches on some popular test images from the literature; and in \S\ref{sec:discussion}, we analyse the results of our experiments.
+The organisation of this paper is as follows: in \S\ref{sec:ipfs}, we briefly revisit the concept of an image partition forest; in \S\ref{sec:merging}, we present our merging methods; in \S\ref{sec:comparisons}, we present various ways in which the merged forests can be compared; in \S\ref{sec:experiments}, we evaluate the effectiveness of our comparison approaches on some popular test images from the literature; and in \S\ref{sec:discussion}, we analyse the results of our experiments.
 
 TODO: \cite{golodetz11}
 
@@ -194,24 +194,24 @@ TODO: \cite{golodetz11}
 
 TODO
 
-%############################
-\section{Convergence Merging}
+%#######################
+\section{Forest Merging}
 \label{sec:merging}
-%############################
+%#######################
 
 TODO
 
 %---
 \begin{stusubfig}{!t}
-	\subfigure[Forest X]{\includegraphics[width=.22\linewidth]{convergencemerging-example-a.png}}%
+	\subfigure[Forest X]{\includegraphics[width=.22\linewidth]{merging-example-a.png}}%
 	\hspace{4mm}%
-	\subfigure[Forest Y]{\includegraphics[width=.22\linewidth]{convergencemerging-example-b.png}}%
+	\subfigure[Forest Y]{\includegraphics[width=.22\linewidth]{merging-example-b.png}}%
 	\hspace{4mm}%
-	\subfigure[SlowMerge(X,Y)]{\includegraphics[width=.22\linewidth]{convergencemerging-example-c.png}}%
+	\subfigure[SlowMerge(X,Y)]{\includegraphics[width=.22\linewidth]{merging-example-c.png}}%
 	\hspace{4mm}%
-	\subfigure[FastMerge(X,Y)]{\includegraphics[width=.22\linewidth]{convergencemerging-example-d.png}}%
+	\subfigure[FastMerge(X,Y)]{\includegraphics[width=.22\linewidth]{merging-example-d.png}}%
 \caption{TODO}
-\label{fig:convergencemerging-example}
+\label{fig:merging-example}
 \end{stusubfig}
 %---
 
