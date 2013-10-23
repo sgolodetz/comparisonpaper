@@ -274,6 +274,12 @@ TODO
 
 TODO
 
+\begin{itemize}
+\item Divide the number of regions in the fast merged forest (ignoring the leaves) by the number of regions in the slow merged forest (ditto). If the two input forests were identical, the slow merged and fast merged forests will be the same, so this will yield $1$. If the two input forests were different, the fast merged forest will have fewer regions than the slow merged forest, so this will yield a number less than $1$, based on the difference between the two inputs (in some as yet undetermined way).
+\item Add up the differences between corresponding entries in the slow and fast CATs, and then normalise. A result of $0$ indicates that the two input forests were the same; a result greater than $0$ shows that they differed in some way. The hope is that greater differences between the inputs will result in greater differences between the CATs.
+\item TODO
+\end{itemize}
+
 %######################
 \section{Experiments}
 \label{sec:experiments}
